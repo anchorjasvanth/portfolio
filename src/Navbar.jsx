@@ -9,7 +9,9 @@ function Navbar() {
         layout
       }
     >
-      <div className="text-3xl font-extrabold">JASVANTH</div>
+      <div className="text-3xl font-extrabold">
+        <a href="home">JASVANTH</a>
+      </div>
       <ul className="flex gap-20">
         <button className={buttonStyle}>
           <a href="#home">HOME</a>
