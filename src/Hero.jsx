@@ -8,7 +8,7 @@ function Hero() {
         <p className="mb-5 text-3xl text-white">COMMANDING THE SPOTLIGHT</p>
         <p className="text-9xl font-extrabold text-white">JASVANTH V A</p>
         <p className="text-8xl text-white">Anchor</p>
-        <button className=" p-5 mt-20 text-black bg-primary text-3xl font-extrabold">
+        <button className="rounded-4xl shadow-primary shadow-xl/30 p-5 mt-20 text-black bg-primary text-3xl font-extrabold cursor-pointer border-white border-2">
           BRING ME ON STAGE
         </button>
       </div>
