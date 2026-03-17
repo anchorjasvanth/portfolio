@@ -1,5 +1,9 @@
 function About() {
-  return <div className="h-dvh bg-primary">about</div>;
+  return (
+    <div className="h-dvh bg-primary" id="about">
+      about
+    </div>
+  );
 }
 
 export default About;

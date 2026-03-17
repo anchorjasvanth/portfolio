@@ -1,6 +1,7 @@
 function Navbar() {
   let layout =
     "fixed top-5 left-0 right-0 mx-auto w-98/100 z-50 flex justify-between";
+  let buttonStyle = "cursor-pointer";
   return (
     <nav
       className={
@@ -8,12 +9,20 @@ function Navbar() {
         layout
       }
     >
-      <div className="text-3xl">JASWANTH</div>
+      <div className="text-3xl font-extrabold">JASVANTH</div>
       <ul className="flex gap-20">
-        <li>HOME</li>
-        <li>ABOUT</li>
-        <li>GALLERY</li>
-        <li>CONTACT</li>
+        <button className={buttonStyle}>
+          <a href="#home">HOME</a>
+        </button>
+        <button className={buttonStyle}>
+          <a href="#about">ABOUT</a>
+        </button>
+        <button className={buttonStyle}>
+          <a href="#gallery">GALLERY</a>
+        </button>
+        <button className={buttonStyle}>
+          <a href="#contact">CONTACT</a>
+        </button>
       </ul>
     </nav>
   );
