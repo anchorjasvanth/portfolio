@@ -1,15 +1,42 @@
+import { useState } from "react";
+import { useEffect } from "react";
 function About() {
+  const [active, setActive] = useState(0);
+
+  const imgs = [
+    "src/assets/hero.jpeg",
+    "src/assets/hero.jpeg",
+    "src/assets/hero.jpeg",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % imgs.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   let images = "rounded-[50px] h-1/7";
   return (
     <div className="h-dvh bg-primary p-30 px-50" id="about">
       <div className="flex gap-20 h-full">
         <div className="flex flex-col w-3/5 justify-between">
           {/* slideshow */}
-          <img
-            className="rounded-[50px] h-125 object-cover object-center"
-            src="src/assets/hero.jpeg"
-            alt=""
-          />
+          <div className="relative w-full h-125 rounded-[50px] overflow-hidden">
+            {imgs.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className={`
+  absolute inset-0 w-full h-full object-cover object-center
+  transition-all duration-1000 ease-in-out
+  ${i === active ? "opacity-100 scale-100" : "opacity-0 scale-105"}
+`}
+              />
+            ))}
+          </div>
           <div>
             <p className="mt-30 text-8xl font-bold">ABOUT ME</p>
             <p className="mt-10 text-2xl w-1/2 text-justify">
