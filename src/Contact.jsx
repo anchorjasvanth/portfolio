@@ -1,5 +1,5 @@
 import { useState } from "react";
-import contactImage from "./assets/Contact .jpeg";
+import contactImage from "./assets/hero.jpeg";
 
 function Contact() {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -39,15 +39,11 @@ function Contact() {
     <section className="min-h-screen bg-black text-primary-text relative overflow-hidden">
       <div className="min-h-screen container mx-auto px-6 py-20 flex flex-col justify-between">
         {/* Tagline */}
-        <div>
+        <div className=" mt-40">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent animate-pulse">
               GET IN TOUCH
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Let's collaborate and create something amazing together. Feel free
-              to reach out through any of the channels below.
-            </p>
           </div>
           {/* Main Content */}
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -55,7 +51,7 @@ function Contact() {
             <img
               src={contactImage}
               alt="Contact"
-              className="relative h-full rounded-2xl shadow-2xl"
+              className="relative h-full rounded-2xl shadow-2xl object-contain"
             />
             {/* Contact Information */}
             <div className="space-y-6">

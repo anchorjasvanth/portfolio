@@ -1,5 +1,5 @@
 function About() {
-  let images = "rounded-[50px] h-2/7";
+  let images = "rounded-[50px] h-1/7";
   return (
     <div className="h-dvh bg-primary p-30 px-50" id="about">
       <div className="flex gap-20 h-full">
@@ -26,11 +26,29 @@ function About() {
         </div>
         <div className="border-l-4 rounded-4xl"></div>
         {/* videos that keeps scrolling using animation */}
-        <div className="flex flex-col justify-between  h-full">
-          <img className={images} src="src/assets/hero.jpeg" alt="" />
-          <img className={images} src="src/assets/hero.jpeg" alt="" />
-          <img className={images} src="src/assets/hero.jpeg" alt="" />
+        <div className="flex flex-col justify-between w-1/3 h-full overflow-hidden">
+          <div className="scrolling flex flex-col gap-10">
+            <img className={images} src="src/assets/hero.jpeg" alt="" />
+            <img className={images} src="src/assets/hero.jpeg" alt="" />
+            <img className={images} src="src/assets/hero.jpeg" alt="" />
+            <img className={images} src="src/assets/hero.jpeg" alt="" />
+            <img className={images} src="src/assets/hero.jpeg" alt="" />
+            <img className={images} src="src/assets/hero.jpeg" alt="" />
+          </div>
         </div>
+        <style>{`
+        @keyframes scroll {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-47%); }
+        }
+        .scrolling {
+          animation: scroll 10s linear infinite;
+          will-change: transform;
+        }
+        .scrolling:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
       </div>
     </div>
   );
