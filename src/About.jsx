@@ -77,7 +77,7 @@ function About() {
             })}
           </div>
           <div>
-            <p className="mt-30 text-8xl font-bold">ABOUT ME</p>
+            <p className="mt-30 text-8xl font-extrabold">ABOUT ME</p>
             <p className="mt-10 text-2xl w-1/2 text-justify">{aboutText}</p>
           </div>
         </div>
