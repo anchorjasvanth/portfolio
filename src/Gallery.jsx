@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 function Gallery({ data }) {
   const [active, setActive] = useState(0);
   const [transition, setTransition] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
+    if (isPaused) return; // don't run interval when paused
     const interval = setInterval(() => {
       setActive((prev) => prev + 1);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   useEffect(() => {
     if (active === 4) {
@@ -31,7 +33,7 @@ function Gallery({ data }) {
       <div className="mt-7 mb-7 bg-white aspect-video rounded-4xl">
         <img src="" alt="" />
       </div>
-      <p className="text-2xl line-clamp-4">
+      <p className="text-2xl line-clamp-4 text-justify">
         A gripping coastal thriller that masterfully combines the serene charm
         of a coastal setting with an enthralling mystery. A gripping coastal
         thriller that masterfully combines the serene charm of a coastal setting
@@ -49,15 +51,19 @@ function Gallery({ data }) {
 
   return (
     <div
-      className="h-dvh bg-black text-white p-30 px-[8%] grid grid-cols-3 grid-rows-[40%_60%] gap-15"
+      className="h-dvh bg-black text-white p-30 px-[8%] grid grid-cols-3 grid-rows-[35%_75%] gap-15"
       id="gallery"
     >
       <div className="col-span-2 col-start-2 text-[10rem] self-center justify-self-end font-extrabold">
         {data.title}
       </div>
-      <div className="col-span-3 row-start-2 overflow-hidden">
+      <div
+        className="col-span-3 row-start-2 overflow-hidden "
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <div
-          className={`flex ${transition ? "transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`}
+          className={`flex hover:animation-play-state: paused ${transition ? "transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`}
           style={{
             transform: `translateX(-${active * (100 / 3)}%)`,
           }}
