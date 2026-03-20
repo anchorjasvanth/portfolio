@@ -13,11 +13,11 @@ function App() {
       <div>
         <Navbar></Navbar>
         <Hero></Hero>
-        <About></About>
+        {/* <About></About>
         <Gallery></Gallery>
         <Gallery></Gallery>
         <Gallery></Gallery>
-        <Contact></Contact>
+        <Contact></Contact> */}
       </div>
     </>
   );
