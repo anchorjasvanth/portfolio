@@ -1,7 +1,8 @@
-function Gallery() {
+function Gallery({ data }) {
   return (
     <div className="h-dvh bg-primary" id="gallery">
-      Gallery
+      <div>{data.title};</div>
+      <div></div>
     </div>
   );
 }
