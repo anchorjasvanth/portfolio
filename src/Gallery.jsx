@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
+//fix lengths and stuff
 function Gallery({ data }) {
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => {
+        let x = (prev + 1) % eventSize;
+        if (x > 5) return 0;
+        else return x;
+      });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
   let event = (
-    <div className=" row-span-1 row-start-2  flex flex-col">
+    <>
       <div className="text-3xl">2030</div>
       <div className="text-3xl font-extrabold">Abyss Of Deceptions</div>
       <div className="mt-7 mb-7 bg-white aspect-video rounded-4xl">
@@ -16,8 +30,11 @@ function Gallery({ data }) {
         combines the serene charm of a coastal setting with an enthralling
         mystery.
       </p>
-    </div>
+    </>
   );
+
+  let eventArray = [event, event, event, event, event, event, event, event];
+  let eventSize = eventArray.length;
 
   return (
     <div
@@ -27,9 +44,18 @@ function Gallery({ data }) {
       <div className="col-span-2 col-start-2 text-[10rem] self-center justify-self-end font-extrabold">
         {data.title}
       </div>
-      {event}
-      {event}
-      {event}
+      {eventArray.map((item, index) => {
+        return (
+          <div
+            className={`${
+              (index - active + eventSize) % eventSize >= 3 && "hidden"
+            } row-span-1 row-start-2 flex flex-col`}
+          >
+            {index % 4}
+            {item}
+          </div>
+        );
+      })}
     </div>
   );
 }
