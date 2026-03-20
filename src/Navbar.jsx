@@ -10,11 +10,11 @@ function Navbar() {
   return (
     <nav
       className={
-        " bg-black/50 text-primary-text/90 backdrop-blur px-12 lg:px-12 py-10 lg:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] text-2xl rounded-4xl " +
+        " bg-black/50 text-primary-text/90 backdrop-blur px-12 lg:px-12 py-6 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] text-2xl rounded-4xl " +
         layout
       }
     >
-      <div className="text-4xl md:text-5xl xl:text-6xl font-extrabold">
+      <div className="text-3xl md:text-5xl xl:text-6xl font-extrabold">
         <a href="#home">JASVANTH</a>
       </div>
 
