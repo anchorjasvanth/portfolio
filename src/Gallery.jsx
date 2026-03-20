@@ -2,17 +2,28 @@ import { useEffect, useState } from "react";
 //fix lengths and stuff
 function Gallery({ data }) {
   const [active, setActive] = useState(0);
+  const [transition, setTransition] = useState(true);
   useEffect(() => {
     const interval = setInterval(() => {
-      setActive((prev) => {
-        let x = (prev + 1) % eventSize;
-        if (x > 5) return 0;
-        else return x;
-      });
+      setActive((prev) => prev + 1);
     }, 2000);
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (active === 4) {
+      setTimeout(() => {
+        setTransition(false); // disable animation
+        setActive(0); // jump back
+
+        // re-enable animation next frame
+        requestAnimationFrame(() => {
+          setTransition(true);
+        });
+      }, 700); // match transition duration
+    }
+  }, [active]);
   let event = (
     <>
       <div className="text-3xl">2030</div>
@@ -44,18 +55,21 @@ function Gallery({ data }) {
       <div className="col-span-2 col-start-2 text-[10rem] self-center justify-self-end font-extrabold">
         {data.title}
       </div>
-      {eventArray.map((item, index) => {
-        return (
-          <div
-            className={`${
-              (index - active + eventSize) % eventSize >= 3 && "hidden"
-            } row-span-1 row-start-2 flex flex-col`}
-          >
-            {index % 4}
-            {item}
-          </div>
-        );
-      })}
+      <div className="col-span-3 row-start-2 overflow-hidden">
+        <div
+          className={`flex ${transition ? "transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" : ""}`}
+          style={{
+            transform: `translateX(-${active * (100 / 3)}%)`,
+          }}
+        >
+          {eventArray.map((item, index) => (
+            <div key={index} className="w-1/3 px-5 flex-shrink-0 flex flex-col">
+              {index % 4}
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
