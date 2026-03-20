@@ -6,7 +6,7 @@ const query = `
 *[_type == "about"][0]{
   _id,
   title,
-
+  desc,
   aboutImages[]{
     _key,
     asset->{
@@ -27,19 +27,16 @@ function About() {
   const [active, setActive] = useState(0);
   const [imgs, setImgs] = useState([]);
   const [scrollImgs, setScrollImgs] = useState([]);
-
+  const [aboutText, setAboutText] = useState("");
   useEffect(() => {
     async function fetchdata() {
       try {
         const res = await client.fetch(query);
         const aboutImageUrls = res.aboutImages.map((img) => img.asset.url);
         const introVidUrls = res.introVids.map((vid) => vid.asset.url);
-
+        setAboutText(res.desc[0].children[0].text);
         setImgs(aboutImageUrls);
         setScrollImgs(introVidUrls);
-
-        // console.log("About Images:", aboutImageUrls);
-        // console.log("Intro Videos:", introVidUrls);
       } catch (e) {
         console.error("Error fetching data:", e);
       }
@@ -81,16 +78,7 @@ function About() {
           </div>
           <div>
             <p className="mt-30 text-8xl font-bold">ABOUT ME</p>
-            <p className="mt-10 text-2xl w-1/2 text-justify">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Nesciunt, ut beatae quod molestias nam consectetur quasi natus
-              ipsa, eaque rerum optio. Iste ipsum molestias eius, inventore
-              officia quasi nihil nostrum! Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Quibusdam totam eaque voluptatum
-              voluptas architecto minima sequi aliquam placeat fugit, laboriosam
-              saepe quod nam cum. Ullam alias praesentium distinctio deleniti
-              quas?
-            </p>
+            <p className="mt-10 text-2xl w-1/2 text-justify">{aboutText}</p>
           </div>
         </div>
         <div className="border-l-4 rounded-4xl"></div>
