@@ -12,12 +12,12 @@ function App() {
     <>
       <div>
         {/* <Navbar></Navbar> */}
-        {/* <Hero></Hero>
-        <About></About>
-        <Gallery data={{ title: "FORMAL" }}></Gallery>
-        <Gallery data={{ title: "HIGH CROWD" }}></Gallery>
-        <Gallery data={{ title: "CLASSICAL" }}></Gallery> */}
-        <Contact></Contact>
+        <Hero></Hero>
+        {/* <About></About> */}
+        {/* {/* <Gallery data={{ title: "FORMAL" }}></Gallery> */}
+        {/* <Gallery data={{ title: "HIGH CROWD" }}></Gallery> */}
+        <Gallery data={{ title: "CLASSICAL" }}></Gallery>
+        {/* <Contact></Contact> */}
       </div>
     </>
   );

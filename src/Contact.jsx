@@ -38,13 +38,13 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="h-dvh bg-black text-white relative py-30 px-10 w-full flex flex-col justify-center"
+      className="min-h-dvh bg-black text-white relative py-30 px-10 w-full flex flex-col justify-center"
     >
       <div className="h-full flex flex-col justify-center items-center w-fit mx-auto">
-        <div className="text-5xl sm:text-7xl 2xl:text-9xl font-extrabold mb-10 2xl:mb-30">
+        <div className="text-4xl sm:text-7xl 2xl:text-9xl font-extrabold mb-10 2xl:mb-30 mt-20">
           GET IN TOUCH
         </div>
-        <div className="flex flex-col justify-start  gap-10 w-full">
+        <div className="flex flex-col justify-start gap-10 w-full">
           {contactInfo.map((item, index) => (
             <a
               key={item.type}

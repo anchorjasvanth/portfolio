@@ -51,3 +51,19 @@
     transform-origin: right;
   }
 }
+
+:root {
+  --cols: 1;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --cols: 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --cols: 3;
+  }
+}

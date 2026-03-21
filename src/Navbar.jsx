@@ -4,13 +4,12 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   let layout =
     "fixed top-5 left-0 right-0 mx-auto w-98/100 z-50 flex justify-between items-center";
-  let buttonStyle =
-    "pl-6 cursor-pointer hover:bg-black/70 py-5 w-full rounded-3xl";
+  let buttonStyle = "pl-6 cursor-pointer py-5 w-full rounded-3xl";
 
   return (
     <nav
       className={
-        " bg-black/50 text-primary-text/90 backdrop-blur px-12 lg:px-12 py-6 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] text-2xl rounded-4xl " +
+        " bg-black/50  text-primary-text/90 backdrop-blur px-12 lg:px-12 py-6 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:text-base lg:text-2xl rounded-4xl " +
         layout
       }
     >

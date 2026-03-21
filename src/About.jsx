@@ -56,11 +56,11 @@ function About() {
 
   let images = "rounded-[50px] h-1/7";
   return (
-    <div className="h-dvh bg-primary p-30 px-50 relative" id="about">
+    <div className="h-dvh bg-primary py-30 px-[10%] relative" id="about">
       <div className="flex gap-20 h-full">
         <div className="flex flex-col w-3/5 justify-between">
           {/* slideshow */}
-          <div className="relative w-full bg-black h-125 rounded-[50px] overflow-hidden">
+          <div className="relative w-full bg-black min-h-125 rounded-[50px] overflow-hidden">
             {imgs.map((src, i) => {
               return (
                 <img
@@ -77,8 +77,8 @@ function About() {
             })}
           </div>
           <div>
-            <p className="mt-30 text-8xl font-extrabold">ABOUT ME</p>
-            <p className="mt-10 text-2xl w-1/2 text-justify">{aboutText}</p>
+            <p className="mt-[10%] text-8xl font-extrabold">ABOUT ME</p>
+            <p className="mt-10 text-2xl text-justify">{aboutText}</p>
           </div>
         </div>
         <div className="border-l-4 rounded-4xl"></div>
