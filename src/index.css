@@ -22,15 +22,32 @@
   0%,
   100% {
     /* transform: scaleX(1) translateX(0); */
-    width: 50%;
+    max-width: 70%;
   }
   50% {
     /* transform: scaleX(1.08) translateX(4%); */
-    width: 100%;
+    max-width: 100%;
+  }
+}
+@keyframes extendRightSmall {
+  0%,
+  100% {
+    transform: scaleX(1) translateX(0);
+    /* max-width: 80%; */
+  }
+  50% {
+    transform: scaleX(1.08) translateX(4%);
+    /* max-width: 100%; */
   }
 }
 
 .animate-extend-right {
-  animation: extendRight 2.5s ease-in-out infinite;
+  animation: extendRightSmall 2.5s ease-in-out infinite;
   transform-origin: right;
+}
+@media (min-width: 650px) {
+  .animate-extend-right {
+    animation: extendRight 2.5s ease-in-out infinite;
+    transform-origin: right;
+  }
 }

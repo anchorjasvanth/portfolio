@@ -38,11 +38,13 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="h-dvh bg-black text-white relative p-30 px-50 "
+      className="h-dvh bg-black text-white relative py-30 px-10 w-full flex flex-col justify-center"
     >
       <div className="h-full flex flex-col justify-center items-center w-fit mx-auto">
-        <div className="text-9xl font-extrabold mb-10">GET IN TOUCH</div>
-        <div className="flex flex-col justify-start  gap-10 w-[100%]">
+        <div className="text-5xl sm:text-7xl 2xl:text-9xl font-extrabold mb-10 2xl:mb-30">
+          GET IN TOUCH
+        </div>
+        <div className="flex flex-col justify-start  gap-10 w-full">
           {contactInfo.map((item, index) => (
             <a
               key={item.type}
@@ -59,7 +61,7 @@ function Contact() {
             >
               <div
                 className={`
-                    p-4 rounded-xl transition-all duration-300 transform bg-primary  animate-extend-right 
+                    p-4 rounded-xl transition-all duration-300 transform bg-primary animate-extend-right 
                     ${
                       hoveredItem === item.type
                         ? "border-primary bg-gray-900 scale-y-120 shadow-lg shadow-primary/20"
@@ -71,15 +73,17 @@ function Contact() {
                 <div className="flex items-center mx-auto gap-4">
                   <span
                     className={`
-                        text-3xl transition-transform duration-300
+                        text-xl xl:text-3xl transition-transform duration-300
                         ${hoveredItem === item.type ? "scale-125 rotate-12" : "scale-100"}
                       `}
                   >
                     {item.icon}
                   </span>
                   <div>
-                    <p className=" text-xl text-black mb-1">{item.display}</p>
-                    <p className="text-2xl font-medium text-black">
+                    <p className="text-xs sm:text-base 2xl:text-xl text-black mb-1">
+                      {item.display}
+                    </p>
+                    <p className=" text-s sm:text-lg 2xl:text-2xl font-medium text-black">
                       {item.value}
                     </p>
                   </div>
@@ -89,17 +93,6 @@ function Contact() {
           ))}
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="pt-6 border-t-2">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className=" text-xl">© 2026, All Rights Reserved</p>
-          <p className="text-xl flex items-center gap-2">
-            <span>📍</span>
-            Based in Bangalore, India
-          </p>
-        </div>
-      </footer>
     </section>
   );
 }

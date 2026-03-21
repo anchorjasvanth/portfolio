@@ -29,8 +29,8 @@ function Gallery({ data }) {
   }, [active]);
   let event = (
     <>
-      <div className="text-3xl">2030</div>
-      <div className="text-3xl font-extrabold">Abyss Of Deceptions</div>
+      <div className="text-2xl">2030</div>
+      <div className="text-2xl font-extrabold">Abyss Of Deceptions</div>
       <div className="mt-7 mb-7 bg-white aspect-video rounded-4xl">
         <img src="src/assets/theatre.jpeg" alt="" />
       </div>
