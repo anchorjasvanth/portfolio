@@ -34,7 +34,7 @@ function Gallery({ data }) {
       <div className="mt-7 mb-7 bg-white aspect-video rounded-4xl">
         <img src="src/assets/theatre.jpeg" alt="" />
       </div>
-      <p className="text-2xl line-clamp-4 text-justify">
+      <p className="text-2xl line-clamp-3 text-justify">
         A gripping coastal thriller that masterfully combines the serene charm
         of a coastal setting with an enthralling mystery. A gripping coastal
         thriller that masterfully combines the serene charm of a coastal setting
@@ -96,10 +96,9 @@ function Gallery({ data }) {
               className="relative w-1/3 px-5 flex-shrink-0 flex flex-col"
               onMouseEnter={() => {
                 setIsPaused(true);
-                setHoverIndex(index);
+                setHoverIndex(index); //TODO: add these to image
               }}
             >
-              {index % 4}
               {item}
             </div>
           ))}

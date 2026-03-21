@@ -36,85 +36,70 @@ function Contact() {
   ];
 
   return (
-    <section className="min-h-screen bg-black text-primary-text relative overflow-hidden">
-      <div className="min-h-screen container mx-auto px-6 py-20 flex flex-col justify-between">
-        {/* Tagline */}
-        <div className=" mt-40">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent animate-pulse">
-              GET IN TOUCH
-            </h2>
-          </div>
-          {/* Main Content */}
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Contact Image */}
-            <img
-              src={contactImage}
-              alt="Contact"
-              className="relative h-full rounded-2xl shadow-2xl object-contain"
-            />
-            {/* Contact Information */}
-            <div className="space-y-6">
-              {contactInfo.map((item) => (
-                <a
-                  key={item.type}
-                  href={item.href}
-                  target={
-                    item.type !== "phone" && item.type !== "email"
-                      ? "_blank"
-                      : "_self"
-                  }
-                  rel="noopener noreferrer"
-                  className="block"
-                  onMouseEnter={() => setHoveredItem(item.type)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                >
-                  <div
-                    className={`
-                    p-4 rounded-xl border transition-all duration-300 transform
+    <section
+      id="contact"
+      className="h-dvh bg-black text-white relative p-30 px-50 "
+    >
+      <div className="h-full flex flex-col justify-center items-center w-fit mx-auto">
+        <div className="text-9xl font-extrabold mb-10">GET IN TOUCH</div>
+        <div className="flex flex-col justify-start  gap-10 w-[100%]">
+          {contactInfo.map((item, index) => (
+            <a
+              key={item.type}
+              href={item.href}
+              target={
+                item.type !== "phone" && item.type !== "email"
+                  ? "_blank"
+                  : "_self"
+              }
+              rel="noopener noreferrer"
+              className="block gap-10 w-full"
+              onMouseEnter={() => setHoveredItem(item.type)}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div
+                className={`
+                    p-4 rounded-xl transition-all duration-300 transform bg-primary  animate-extend-right 
                     ${
                       hoveredItem === item.type
-                        ? "border-primary bg-gray-900 scale-105 shadow-lg shadow-primary/20"
+                        ? "border-primary bg-gray-900 scale-y-120 shadow-lg shadow-primary/20"
                         : "border-gray-500 bg-black/50 hover:border-gray-600"
                     }
                   `}
-                  >
-                    <div className="flex items-center gap-4">
-                      <span
-                        className={`
+                style={{ animationDelay: `${index * 0.3}s` }}
+              >
+                <div className="flex items-center mx-auto gap-4">
+                  <span
+                    className={`
                         text-3xl transition-transform duration-300
                         ${hoveredItem === item.type ? "scale-125 rotate-12" : "scale-100"}
                       `}
-                      >
-                        {item.icon}
-                      </span>
-                      <div>
-                        <p className="text-sm text-gray-400 mb-1">
-                          {item.display}
-                        </p>
-                        <p className="text-lg font-medium text-primary-text">
-                          {item.value}
-                        </p>
-                      </div>
-                    </div>
+                  >
+                    {item.icon}
+                  </span>
+                  <div>
+                    <p className=" text-xl text-black mb-1">{item.display}</p>
+                    <p className="text-2xl font-medium text-black">
+                      {item.value}
+                    </p>
                   </div>
-                </a>
-              ))}
-            </div>
-          </div>
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
-
-        {/* Footer */}
-        <footer className="mt-20 pt-12 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">© 2026, All Rights Reserved</p>
-            <p className="text-gray-400 text-sm flex items-center gap-2">
-              <span>📍</span>
-              Based in Bangalore, India
-            </p>
-          </div>
-        </footer>
       </div>
+
+      {/* Footer */}
+      <footer className="pt-6 border-t-2">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className=" text-xl">© 2026, All Rights Reserved</p>
+          <p className="text-xl flex items-center gap-2">
+            <span>📍</span>
+            Based in Bangalore, India
+          </p>
+        </div>
+      </footer>
     </section>
   );
 }

@@ -15,5 +15,22 @@
 }
 
 .scroll-track {
-  animation: verticalLoop 10s linear infinite;
+  animation: verticalLoop 5s linear infinite;
+}
+
+@keyframes extendRight {
+  0%,
+  100% {
+    /* transform: scaleX(1) translateX(0); */
+    width: 50%;
+  }
+  50% {
+    /* transform: scaleX(1.08) translateX(4%); */
+    width: 100%;
+  }
+}
+
+.animate-extend-right {
+  animation: extendRight 2.5s ease-in-out infinite;
+  transform-origin: right;
 }
