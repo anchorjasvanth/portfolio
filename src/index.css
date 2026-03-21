@@ -4,3 +4,16 @@
   --color-primary: oklch(0.7438 0.169 48.36);
   --color-primary-text: oklch(0.9636 0.0328 107);
 }
+
+@keyframes verticalLoop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.scroll-track {
+  animation: verticalLoop 10s linear infinite;
+}

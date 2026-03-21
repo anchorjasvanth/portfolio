@@ -56,7 +56,7 @@ function About() {
 
   let images = "rounded-[50px] h-1/7";
   return (
-    <div className="h-dvh bg-primary p-30 px-50" id="about">
+    <div className="h-dvh bg-primary p-30 px-50 relative" id="about">
       <div className="flex gap-20 h-full">
         <div className="flex flex-col w-3/5 justify-between">
           {/* slideshow */}
