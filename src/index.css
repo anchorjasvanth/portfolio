@@ -3,7 +3,8 @@
 @theme {
   --color-primary: oklch(0.7438 0.169 48.36);
   --color-secondary: rgb(0, 0, 0);
-  --color-primary-text: oklch(0.9636 0.0328 107);
+  /* --color-primary-text: oklch(0.9636 0.0328 107); */
+  --color-primary-text: rgb(255, 255, 255);
   --color-secondary-text: rgb(0, 0, 0);
 }
 

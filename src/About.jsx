@@ -7,14 +7,10 @@ const query = `
   _id,
   title,
   desc,
+  kannda{asset->{url}},
+  hini{asset->{url}},
+  english{asset->{url}},
   aboutImages[]{
-    _key,
-    asset->{
-      url
-    }
-  },
-
-  introVids[]{
     _key,
     asset->{
       url
@@ -26,17 +22,23 @@ const query = `
 function About() {
   const [active, setActive] = useState(0);
   const [imgs, setImgs] = useState([]);
-  const [scrollImgs, setScrollImgs] = useState([]);
+  const [scrollVids, setScrollVids] = useState([]);
   const [aboutText, setAboutText] = useState("");
   useEffect(() => {
     async function fetchdata() {
       try {
         const res = await client.fetch(query);
-        const aboutImageUrls = res.aboutImages.map((img) => img.asset.url);
-        const introVidUrls = res.introVids.map((vid) => vid.asset.url);
-        setAboutText(res.desc[0].children[0].text);
+        const aboutImageUrls = (res.aboutImages || [])
+          .map((img) => img.asset?.url)
+          .filter(Boolean);
+        const aboutVideoUrls = [
+          { url: res.kannda?.asset?.url, label: "Kannada" },
+          { url: res.hini?.asset?.url, label: "Hindi" },
+          { url: res.english?.asset?.url, label: "English" },
+        ].filter((v) => v.url);
+        setAboutText(res.desc?.[0]?.children?.[0]?.text || "");
         setImgs(aboutImageUrls);
-        setScrollImgs(introVidUrls);
+        setScrollVids(aboutVideoUrls);
       } catch (e) {
         console.error("Error fetching data:", e);
       }
@@ -102,55 +104,32 @@ function About() {
         </div>
         <div className="mt-10 border-l-4 rounded-4xl"></div>
         <div className="flex border-t-4 py-10 xl:border-0 xl:py-0 xl:mt-0 xl:flex-col xl:justify-between xl:w-1/3 w-full max-h-150 xl:max-h-full  xl:h-full overflow-hidden">
-          <div className="scrolling flex xl:flex-col gap-10 h-fit">
-            {scrollImgs.length > 0 ? (
+          <div className="scrolling px-2 flex xl:flex-col gap-10 h-fit">
+            {
               <>
-                {scrollImgs.map((src, i) => (
-                  <img key={i} className={images} src={src} alt="scroll" />
-                ))}
-                {scrollImgs.map((src, i) => (
-                  <img
-                    key={`duplicate-${i}`}
-                    className={images}
-                    src={src}
-                    alt="scroll"
-                  />
+                {console.log(scrollVids)}
+                {[...scrollVids, ...scrollVids].map((src, i) => (
+                  <div
+                    key={i}
+                    className="relative rounded-[50px] aspect-video h-[clamp(200px,20vw, 300px)] shrink-0 w-[clamp(300px,90vw,500px)] xl:w-full object-cover tap-hint"
+                  >
+                    <video
+                      className={images}
+                      src={src.url}
+                      controls
+                      loop
+                      muted
+                      playsInline
+                    />
+
+                    {/* Language tag */}
+                    <div className="absolute top-3 left-3 bg-black/60 text-white text-xs sm:text-sm px-3 py-1 rounded-xl backdrop-blur">
+                      {src.label}
+                    </div>
+                  </div>
                 ))}
               </>
-            ) : (
-              <>
-                <img
-                  className={images}
-                  src="src/assets/hero.jpeg"
-                  alt="placeholder"
-                />
-                <img
-                  className={images}
-                  src="src/assets/hero.jpeg"
-                  alt="placeholder"
-                />
-                <img
-                  className={images}
-                  src="src/assets/hero.jpeg"
-                  alt="placeholder"
-                />
-                <img
-                  className={images}
-                  src="src/assets/hero.jpeg"
-                  alt="placeholder"
-                />
-                <img
-                  className={images}
-                  src="src/assets/hero.jpeg"
-                  alt="placeholder"
-                />
-                <img
-                  className={images}
-                  src="src/assets/hero.jpeg"
-                  alt="placeholder"
-                />
-              </>
-            )}
+            }
           </div>
         </div>
         <style>{`
@@ -165,7 +144,7 @@ function About() {
         }
 
         .scrolling {
-          animation: scrollY 3s linear infinite;
+          animation: scrollY 5s linear infinite;
           will-change: transform;
         }
 
@@ -176,7 +155,7 @@ function About() {
         /* < xl (Tailwind xl = 1280px) */
         @media (max-width: 1279px) {
           .scrolling {
-            animation: scrollX 3s linear infinite;
+            animation: scrollX 5s linear infinite;
           }
         }
 

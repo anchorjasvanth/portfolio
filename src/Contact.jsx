@@ -1,44 +1,77 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import client from "./sanity";
 import contactImage from "./assets/hero.jpeg";
+
+const query = `
+*[_type == "contact"][0]{
+  _id,
+  phone,
+  email,
+  linkedinLink,
+  linkedinDisplayName,
+  instagramLink,
+  instagramDisplayName
+}
+`;
 
 function Contact() {
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [contactData, setContactData] = useState(null);
 
-  const contactInfo = [
-    {
-      type: "phone",
-      value: "+91 99999 99999",
-      display: "Phone",
-      icon: "📱",
-      href: "tel:+919999999999",
-    },
-    {
-      type: "email",
-      value: "jaswanth.kumar@example.com",
-      display: "Email",
-      icon: "✉️",
-      href: "mailto:jaswanth.kumar@example.com",
-    },
-    {
-      type: "linkedin",
-      value: "linkedin.com/in/jaswanth-kumar",
-      display: "LinkedIn",
-      icon: "💼",
-      href: "https://linkedin.com/in/jaswanth-kumar",
-    },
-    {
-      type: "instagram",
-      value: "@jaswanth",
-      display: "Instagram",
-      icon: "📷",
-      href: "https://instagram.com/jaswanth",
-    },
-  ];
+  useEffect(() => {
+    async function fetchdata() {
+      try {
+        const res = await client.fetch(query);
+        setContactData(res);
+      } catch (e) {
+        console.error("Error fetching contact data:", e);
+      }
+    }
+    fetchdata();
+  }, []);
+
+  const contactInfo = contactData
+    ? [
+        {
+          type: "phone",
+          value: contactData.phone,
+          display: "Phone",
+          icon: "📱",
+          href: `tel:${contactData.phone}`,
+        },
+        {
+          type: "email",
+          value: contactData.email,
+          display: "Email",
+          icon: "✉️",
+          href: `mailto:${contactData.email}`,
+        },
+        {
+          type: "linkedin",
+          value: "@" + contactData.linkedinDisplayName,
+          display: "LinkedIn",
+          icon: "💼",
+          href: contactData.linkedinLink,
+        },
+        {
+          type: "instagram",
+          value: "@" + contactData.instagramDisplayName,
+          display: "Instagram",
+          icon: "📷",
+          href: contactData.instagramLink,
+        },
+      ]
+    : [];
+
+  if (!contactData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section
       id="contact"
-      className="min-h-dvh bg-black text-white relative py-30 px-10 w-full flex flex-col justify-center"
+      className="min-h-dvh bg-secondary text-primary-text relative py-30 px-10 w-full flex flex-col justify-center"
     >
       <div className="h-full flex flex-col justify-center items-center w-fit mx-auto">
         <div className="text-4xl sm:text-7xl 2xl:text-9xl font-extrabold mb-10 2xl:mb-30 mt-20">

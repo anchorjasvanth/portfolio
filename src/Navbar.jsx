@@ -13,8 +13,15 @@ function Navbar() {
         layout
       }
     >
-      <div className="text-3xl md:text-5xl xl:text-6xl font-extrabold">
-        <a href="#home">JASVANTH</a>
+      <div
+        className="text-3xl md:text-5xl xl:text-6xl font-extrabold cursor-pointer"
+        onClick={() => {
+          document
+            .getElementById("home")
+            ?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        JASVANTH
       </div>
 
       <div className="flex items-center gap-3 lg:gap-20">
@@ -22,17 +29,45 @@ function Navbar() {
           className={`hidden lg:flex gap-20 items-center ${open ? "" : ""}`}
           aria-label="Primary navigation"
         >
-          <button className={buttonStyle}>
-            <a href="#home">HOME</a>
+          <button
+            onClick={() => {
+              document
+                .getElementById("home")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={buttonStyle}
+          >
+            HOME
           </button>
-          <button className={buttonStyle}>
-            <a href="#about">ABOUT</a>
+          <button
+            onClick={() => {
+              document
+                .getElementById("about")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={buttonStyle}
+          >
+            ABOUT
           </button>
-          <button className={buttonStyle}>
-            <a href="#gallery">GALLERY</a>
+          <button
+            onClick={() => {
+              document
+                .getElementById("gallery")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={buttonStyle}
+          >
+            GALLERY
           </button>
-          <button className={buttonStyle}>
-            <a href="#contact">CONTACT</a>
+          <button
+            onClick={() => {
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={buttonStyle}
+          >
+            CONTACT
           </button>
         </ul>
 
