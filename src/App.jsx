@@ -11,13 +11,13 @@ function App() {
   return (
     <>
       <div>
-        {/* <Navbar></Navbar> */}
+        <Navbar></Navbar>
         <Hero></Hero>
-        {/* <About></About> */}
-        {/* {/* <Gallery data={{ title: "FORMAL" }}></Gallery> */}
-        {/* <Gallery data={{ title: "HIGH CROWD" }}></Gallery> */}
+        <About></About>
+        <Gallery data={{ title: "FORMAL" }}></Gallery>
+        <Gallery data={{ title: "HIGH CROWD" }}></Gallery>
         <Gallery data={{ title: "CLASSICAL" }}></Gallery>
-        {/* <Contact></Contact> */}
+        <Contact></Contact>
       </div>
     </>
   );
