@@ -62,7 +62,7 @@ function Navbar() {
       </div>
 
       <div
-        className={`lg:hidden absolute left-0 right-0 top-[90px] z-40 bg-secondary/90 backdrop-blur-lg rounded-b-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-300 ${
+        className={`lg:hidden absolute left-0 right-0 top-[90px] z-40 bg-black/90 backdrop-blur-lg rounded-b-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-300 ${
           open
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"

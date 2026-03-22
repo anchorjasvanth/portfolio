@@ -15,7 +15,7 @@ function App() {
         <Hero></Hero>
         <About></About>
         <Gallery data={{ title: "FORMAL" }}></Gallery>
-        <Gallery data={{ title: "HIGH CROWD" }}></Gallery>
+        <Gallery data={{ title: "HIGH CROWD", alt: true }}></Gallery>
         <Gallery data={{ title: "CLASSICAL" }}></Gallery>
         <Contact></Contact>
       </div>

@@ -38,7 +38,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-dvh bg-secondary text-primary-text relative py-30 px-10 w-full flex flex-col justify-center"
+      className="min-h-dvh bg-black text-white relative py-30 px-10 w-full flex flex-col justify-center"
     >
       <div className="h-full flex flex-col justify-center items-center w-fit mx-auto">
         <div className="text-4xl sm:text-7xl 2xl:text-9xl font-extrabold mb-10 2xl:mb-30 mt-20">
@@ -64,8 +64,8 @@ function Contact() {
                     p-4 rounded-xl transition-all duration-300 transform bg-primary animate-extend-right 
                     ${
                       hoveredItem === item.type
-                        ? "border-primary bg-secondary scale-y-120 shadow-lg shadow-primary/20"
-                        : "border-gray-500 bg-secondary/50 hover:border-gray-600"
+                        ? "border-primary bg-gray-900 scale-y-120 shadow-lg shadow-primary/20"
+                        : "border-gray-500 bg-black/50 hover:border-gray-600"
                     }
                   `}
                 style={{ animationDelay: `${index * 0.3}s` }}
@@ -80,10 +80,10 @@ function Contact() {
                     {item.icon}
                   </span>
                   <div>
-                    <p className="text-xs sm:text-base 2xl:text-xl text-primary-text mb-1">
+                    <p className="text-xs sm:text-base 2xl:text-xl text-black mb-1">
                       {item.display}
                     </p>
-                    <p className=" text-s sm:text-lg 2xl:text-2xl font-medium text-primary-text">
+                    <p className=" text-s sm:text-lg 2xl:text-2xl font-medium text-black">
                       {item.value}
                     </p>
                   </div>

@@ -58,7 +58,7 @@ function About() {
     "rounded-[50px] aspect-video h-[clamp(200px,20vw, 300px)] shrink-0 w-[clamp(300px,90vw,500px)] xl:w-full object-cover tap-hint";
   return (
     <div
-      className="xl:h-dvh bg-primary py-[min(10%,5rem)] px-[clamp(1rem,10%,5rem)] 2xl:px-40 relative"
+      className="xl:h-dvh text-secondary-text bg-primary py-[min(10%,5rem)] px-[clamp(1rem,10%,5rem)] 2xl:px-40 relative"
       id="about"
     >
       <div className=" xl:flex xl:gap-20 xl:h-full">
