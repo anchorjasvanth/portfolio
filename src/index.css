@@ -14,6 +14,19 @@
   }
 }
 
+@keyframes tapHint {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+.tap-hint {
+  animation: tapHint 3s ease-in-out infinite;
+}
+
 .scroll-track {
   animation: verticalLoop 5s linear infinite;
 }

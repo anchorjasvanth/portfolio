@@ -33,8 +33,9 @@ function Gallery({ data }) {
       <div className="text-base xl:text-2xl font-extrabold">
         Abyss Of Deceptions
       </div>
+      <p className="2xl:hidden text-white/60 text-xs ">Tap images to explore</p>
       <img
-        className="max-h-60 object-cover mt-7 mb-7 aspect-video rounded-4xl"
+        className="max-h-60 object-cover mt-7 mb-7 aspect-video rounded-4xl tap-hint"
         src="src/assets/theatre.jpeg"
         alt=""
       />
@@ -69,6 +70,7 @@ function Gallery({ data }) {
               left: `calc(8% + (84%)*1/var(--cols) *${hoverIndex - active})`,
             }}
             onMouseLeave={() => setIsPaused(false)}
+            onClick={() => setIsPaused(false)}
           >
             <div className="scroll-track flex flex-col gap-5 rounded-4xl">
               {[...eventMedia, ...eventMedia].map((item, index) => (
@@ -84,7 +86,7 @@ function Gallery({ data }) {
         </>
       )}
 
-      <div className="col-span-2 col-start-2 text-5xl md:text-7xl xl:text-[10rem] self-center justify-self-end font-extrabold">
+      <div className="text-nowrap col-span-2 col-start-2 text-5xl md:text-7xl xl:text-[10rem] self-center justify-self-end font-extrabold">
         {data.title}
       </div>
       <div className="max-h-fit col-span-3 row-start-2 overflow-hidden ">
