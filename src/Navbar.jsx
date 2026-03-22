@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav
       className={
-        " bg-black/50  text-primary-text/90 backdrop-blur px-12 lg:px-12 py-6 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:text-base lg:text-2xl rounded-4xl " +
+        " bg-black/50  text-white/90 backdrop-blur px-12 lg:px-12 py-6 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:text-base lg:text-2xl rounded-4xl " +
         layout
       }
     >
@@ -62,7 +62,7 @@ function Navbar() {
       </div>
 
       <div
-        className={`lg:hidden absolute left-0 right-0 top-[90px] z-40 bg-black/90 backdrop-blur-lg rounded-b-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-300 ${
+        className={`lg:hidden absolute left-0 right-0 top-[90px] z-40 bg-secondary/90 backdrop-blur-lg rounded-b-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-300 ${
           open
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"

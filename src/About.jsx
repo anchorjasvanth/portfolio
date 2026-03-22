@@ -75,7 +75,7 @@ function About() {
 "
         >
           {/* slideshow */}
-          <div className="[@media(max-height:800px)]:hidden  relative w-full bg-black rounded-[50px] overflow-hidden">
+          <div className="[@media(max-height:800px)]:hidden  relative w-full bg-secondary rounded-[50px] overflow-hidden">
             {imgs.map((src, i) => {
               return (
                 <img

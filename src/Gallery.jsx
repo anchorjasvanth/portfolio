@@ -33,7 +33,9 @@ function Gallery({ data }) {
       <div className="text-base xl:text-2xl font-extrabold">
         Abyss Of Deceptions
       </div>
-      <p className="2xl:hidden text-white/60 text-xs ">Tap images to explore</p>
+      <p className="2xl:hidden text-primary-text/60 text-xs ">
+        Tap images to explore
+      </p>
       <img
         className="max-h-60 object-cover mt-7 mb-7 aspect-video rounded-4xl tap-hint"
         src="src/assets/theatre.jpeg"
@@ -57,15 +59,15 @@ function Gallery({ data }) {
   let eventMedia = ["", "", "", ""];
   return (
     <div
-      className="min-h-dvh relative bg-black text-white py-30 px-[8%] grid grid-cols-3 grid-rows-[35%_75%] gap-0 xl:gap-30"
+      className="min-h-dvh relative bg-secondary text-primary-text py-30 px-[8%] grid grid-cols-3 grid-rows-[35%_75%] gap-0 xl:gap-30"
       id="gallery"
     >
       {isPaused && (
         <>
-          <div className="top-0 absolute w-full bg-black/50 h-dvh text-white z-2 backdrop-blur-xs"></div>
+          <div className="top-0 absolute w-full bg-secondary/50 h-dvh text-primary-text z-2 backdrop-blur-xs"></div>
 
           <div
-            className="top-0 h-dvh w-[calc((84%))] lg:w-[calc((84%)/2)] xl:w-[calc((84%)/3)] absolute bg-black/0 z-20 flex flex-col p-5 gap-5 overflow-hidden"
+            className="top-0 h-dvh w-[calc((84%))] lg:w-[calc((84%)/2)] xl:w-[calc((84%)/3)] absolute bg-secondary/0 z-20 flex flex-col p-5 gap-5 overflow-hidden"
             style={{
               left: `calc(8% + (84%)*1/var(--cols) *${hoverIndex - active})`,
             }}
