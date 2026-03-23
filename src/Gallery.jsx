@@ -58,6 +58,14 @@ function Gallery({ data }) {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + events.length) % events.length);
   };
+  useEffect(() => {
+    if (events.length === 0) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % events.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [events.length, currentIndex]);
 
   if (isLoading) {
     return (

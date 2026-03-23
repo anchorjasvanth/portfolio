@@ -110,7 +110,7 @@ function About() {
       <div className="lg:w-1/3 flex flex-col min-h-[400px] lg:min-h-0">
         <div className="flex-1 flex flex-col gap-6">
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6 flex-1 flex flex-col justify-center gap-6">
-            <div className="flex flex-col gap-6 overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 max-h-[500px] lg:max-h-none">
+            <div className="flex flex-col gap-6 overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 max-h-[500px] lg:max-h-none custom-scrollbar">
               {scrollVids.map((video, i) => (
                 <div
                   key={i}
@@ -134,6 +134,22 @@ function About() {
           </div>
         </div>
       </div>
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.7);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(244, 179, 63, 1);
+        }
+      `}</style>
     </section>
   );
 }
