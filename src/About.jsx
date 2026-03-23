@@ -61,7 +61,6 @@ function About() {
   if (!data) return null;
 
   const imgs = data.aboutImages.map((img) => img.asset?.url);
-  console.log(data);
   const scrollVids = data.videos || [];
 
   return (

@@ -113,7 +113,7 @@ function Contact() {
                     {item.icon}
                   </span>
                   <div>
-                    <p className="text-xs sm:text-base 2xl:text-xl text-black mb-1">
+                    <p className="text-xs sm:text-base 2xl:text-xl text-black/90 mb-1">
                       {item.display}
                     </p>
                     <p className=" text-s sm:text-lg 2xl:text-2xl font-medium text-black">

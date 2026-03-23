@@ -18,7 +18,18 @@ function Gallery({ data }) {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
 
   useEffect(() => {
-    const query = `*[_type in ["formal", "crowd", "classical"]] | order(_createdAt desc){
+    const typeMap = {
+      FORMAL: "formal",
+      "HIGH CROWD": "crowd",
+      CLASSICAL: "classical",
+    };
+
+    const type = typeMap[data?.title?.toUpperCase()] || null;
+    if (!type) {
+      console.warn(`Unknown gallery title: ${data?.title}, fallback to formal`);
+    }
+
+    const query = `*[_type == "${type || "formal"}"] | order(_createdAt desc){
       _id,
       eventName,
       year,
@@ -38,7 +49,7 @@ function Gallery({ data }) {
       }
     }
     fetchData();
-  }, []);
+  }, [data.title]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % events.length);
