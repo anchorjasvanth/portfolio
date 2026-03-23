@@ -97,7 +97,7 @@ function Contact() {
                     p-4 rounded-xl transition-all duration-300 transform bg-primary animate-extend-right 
                     ${
                       hoveredItem === item.type
-                        ? "border-primary bg-gray-900 scale-y-120 shadow-lg shadow-primary/20"
+                        ? "border-primary bg-gray-900 scale-y-105 shadow-lg shadow-primary/20"
                         : "border-gray-500 bg-black/50 hover:border-gray-600"
                     }
                   `}
