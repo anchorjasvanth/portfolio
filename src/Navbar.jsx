@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav
       className={
-        " bg-black/50  text-white/90 backdrop-blur px-12 lg:px-12 py-6 md:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:text-base lg:text-2xl rounded-4xl " +
+        " bg-secondary/50  text-primary-text/90 backdrop-blur px-12 lg:px-12 py-6 md:py-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:text-base lg:text-2xl rounded-4xl " +
         layout
       }
     >
@@ -61,6 +61,7 @@ function Navbar() {
           </button>
           <button
             onClick={() => {
+              console.log(document.getElementById("contact"));
               document
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" });

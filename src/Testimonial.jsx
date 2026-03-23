@@ -61,8 +61,11 @@ function Testimonial() {
   }, []);
 
   return (
-    <section className="bg-primary min-h-screen relative py-30 px-[10%] flex flex-col justify-between">
-      <div className="text-4xl lg:text-5xl xl:text-8xl font-extrabold mb-[10%]">
+    <section
+      id="testi"
+      className="bg-primary min-h-screen relative py-30 px-[10%] flex flex-col justify-between"
+    >
+      <div className="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter mb-[10%]">
         TESTIMONIALS
       </div>
       <div className="max-w-4xl mx-auto">
