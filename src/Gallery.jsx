@@ -59,14 +59,14 @@ function Gallery({ data }) {
     setCurrentIndex((prev) => (prev - 1 + events.length) % events.length);
   };
   useEffect(() => {
-    if (events.length === 0) return;
+    if (events.length === 0 || isArchiveOpen) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % events.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [events.length, currentIndex]);
-
+  }, [events.length, isArchiveOpen, currentIndex]);
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -212,7 +212,7 @@ function Gallery({ data }) {
                     {currentEvent.eventName}
                   </h4>
                   <p className="text-brand-brown/60 font-label uppercase tracking-widest text-xs">
-                    Project Archive — {currentEvent.year}
+                    Event Archive — {currentEvent.year}
                   </p>
                 </div>
                 <button
