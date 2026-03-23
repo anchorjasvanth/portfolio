@@ -121,7 +121,8 @@ function Gallery({ data }) {
             onMouseLeave={() => setIsPaused(false)}
             onClick={() => setIsPaused(false)}
           >
-            <div className=" scroll-track flex flex-col gap-5 rounded-4xl">
+            {/* scroll-track */}
+            <div className="overflow-y-scroll  flex flex-col gap-5 rounded-4xl">
               {[...mediaList, ...mediaList].map((media, index) =>
                 media._type === "image" ? (
                   <img
@@ -138,6 +139,10 @@ function Gallery({ data }) {
                     preload="metadata"
                     className="bg-secondary object-cover min-h-50 xl:min-h-75 w-full rounded-4xl"
                     controls
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
                     style={{ maxHeight: "200px" }}
                   >
                     <source src={media.asset?.url} />

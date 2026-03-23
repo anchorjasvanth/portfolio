@@ -110,8 +110,16 @@ function Navbar() {
             }`}
             style={{ transitionDelay: open ? "0ms" : "300ms" }}
           >
-            <button className={buttonStyle} onClick={() => setOpen(false)}>
-              <a href="#home">HOME</a>
+            <button
+              className={buttonStyle}
+              onClick={() => {
+                document
+                  .getElementById("home")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                setOpen(false);
+              }}
+            >
+              HOME
             </button>
           </li>
           <li
@@ -120,8 +128,16 @@ function Navbar() {
             }`}
             style={{ transitionDelay: open ? "100ms" : "200ms" }}
           >
-            <button className={buttonStyle} onClick={() => setOpen(false)}>
-              <a href="#about">ABOUT</a>
+            <button
+              className={buttonStyle}
+              onClick={() => {
+                document
+                  .getElementById("about")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                setOpen(false);
+              }}
+            >
+              ABOUT
             </button>
           </li>
           <li
@@ -130,8 +146,16 @@ function Navbar() {
             }`}
             style={{ transitionDelay: open ? "200ms" : "100ms" }}
           >
-            <button className={buttonStyle} onClick={() => setOpen(false)}>
-              <a href="#gallery">GALLERY</a>
+            <button
+              className={buttonStyle}
+              onClick={() => {
+                document
+                  .getElementById("gallery")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                setOpen(false);
+              }}
+            >
+              GALLERY
             </button>
           </li>
           <li
@@ -140,8 +164,16 @@ function Navbar() {
             }`}
             style={{ transitionDelay: open ? "300ms" : "0ms" }}
           >
-            <button className={buttonStyle} onClick={() => setOpen(false)}>
-              <a href="#contact">CONTACT</a>
+            <button
+              className={buttonStyle}
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                setOpen(false);
+              }}
+            >
+              CONTACT
             </button>
           </li>
         </ul>

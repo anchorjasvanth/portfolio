@@ -120,6 +120,7 @@ function About() {
                       loop
                       muted
                       playsInline
+                      autoPlay
                     />
 
                     {/* Language tag */}
@@ -140,7 +141,7 @@ function About() {
 
         @keyframes scrollX {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-51%); }
+          100% { transform: translateX(-50%); }
         }
 
         .scrolling {

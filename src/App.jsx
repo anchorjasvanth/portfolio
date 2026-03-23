@@ -6,7 +6,7 @@ import About from "./About";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
 import { useEffect } from "react";
-
+import Testimonial from "./Testimonial";
 function App() {
   return (
     <>
@@ -17,6 +17,7 @@ function App() {
         <Gallery data={{ title: "FORMAL" }}></Gallery>
         <Gallery data={{ title: "HIGH CROWD", alt: true }}></Gallery>
         <Gallery data={{ title: "CLASSICAL" }}></Gallery>
+        <Testimonial></Testimonial>
         <Contact></Contact>
       </div>
     </>
