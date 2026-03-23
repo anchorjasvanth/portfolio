@@ -58,7 +58,7 @@ function Testimonial() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentTestimonial]);
 
   return (
     <section
@@ -75,6 +75,18 @@ function Testimonial() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = offset.x;
+
+              if (swipe < -100 || velocity.x < -500) {
+                nextTestimonial();
+              } else if (swipe > 100 || velocity.x > 500) {
+                prevTestimonial();
+              }
+            }}
             className="bg-secondary text-primary-text p-12 md:p-16 rounded-xl shadow-2xl flex flex-col justify-between min-h-[400px]"
           >
             <p className="text-on-surface text-2xl md:text-3xl leading-relaxed mb-12 italic font-medium">
@@ -112,7 +124,7 @@ function Testimonial() {
             {testimonials.map((_, i) => (
               <div
                 key={i}
-                className={`w-2 h-2 rounded-full transition-all ${i === currentTestimonial ? "bg-brand-brown w-6" : "bg-brand-brown/20"}`}
+                className={`w-2 h-2 bg-secondary/60  rounded-full transition-all ${i === currentTestimonial ? "bg-brand-brown w-6" : "bg-brand-brown/20"}`}
               />
             ))}
           </div>
