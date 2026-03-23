@@ -1,184 +1,137 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { name: "HOME", id: "home" },
+  { name: "ABOUT", id: "about" },
+  { name: "GALLERY", id: "gallery" },
+  { name: "TESTIMONIALS", id: "testi" },
+];
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
-  let layout =
-    "fixed top-5 left-0 right-0 mx-auto w-98/100 z-50 flex justify-between items-center";
-  let buttonStyle = "pl-6 cursor-pointer py-5 w-full rounded-3xl";
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Close menu first, then scroll after animation completes
+      setIsOpen(false);
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    } else {
+      console.warn(`Section with id "${id}" not found`);
+    }
+  };
 
   return (
     <nav
-      className={
-        " bg-secondary/50  text-primary-text/90 backdrop-blur px-12 lg:px-12 py-6 md:py-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:text-base lg:text-2xl rounded-4xl " +
-        layout
-      }
+      className={`fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[100] transition-all duration-500 rounded-3xl overflow-hidden ${
+        scrolled
+          ? "bg-secondary/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-primary-text/10 py-3"
+          : "bg-secondary/50 backdrop-blur-md border border-primary-text/5 py-5"
+      }`}
     >
-      <div
-        className="text-3xl md:text-5xl xl:text-6xl font-extrabold cursor-pointer"
-        onClick={() => {
-          document
-            .getElementById("home")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        JASVANTH
-      </div>
-
-      <div className="flex items-center gap-3 lg:gap-20">
-        <ul
-          className={`hidden lg:flex gap-20 items-center ${open ? "" : ""}`}
-          aria-label="Primary navigation"
+      <div className="px-6 md:px-10 flex justify-between items-center">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl md:text-3xl font-headline font-black tracking-tighter cursor-pointer text-primary-text flex items-center gap-1"
+          onClick={() => scrollToSection("home")}
         >
-          <button
-            onClick={() => {
-              document
-                .getElementById("home")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className={buttonStyle}
-          >
-            HOME
-          </button>
-          <button
-            onClick={() => {
-              document
-                .getElementById("about")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className={buttonStyle}
-          >
-            ABOUT
-          </button>
-          <button
-            onClick={() => {
-              document
-                .getElementById("gallery")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className={buttonStyle}
-          >
-            GALLERY
-          </button>
-          <button
-            onClick={() => {
-              console.log(document.getElementById("contact"));
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className={buttonStyle}
-          >
-            CONTACT
-          </button>
-        </ul>
+          JASVANTH<span className="text-primary">.</span>
+        </motion.div>
 
-        <button
-          className="lg:hidden p-2 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {navLinks.map((link) => (
+              <motion.li
+                key={link.id}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <button
+                  onClick={() => scrollToSection(link.id)}
+                  className="text-[13px] font-label font-bold tracking-[0.2em] text-primary-text/70 hover:text-primary transition-colors relative group uppercase"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </button>
+              </motion.li>
+            ))}
+          </ul>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection("contact")}
+            className="bg-primary text-secondary px-6 py-2.5 rounded-full font-label font-black text-[12px] tracking-widest hover:shadow-[0_0_20px_rgba(244,179,63,0.4)] transition-all uppercase"
+          >
+            GET IN TOUCH
+          </motion.button>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="lg:hidden text-primary-text p-2 hover:bg-primary-text/10 rounded-xl transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
         >
-          <span
-            className="block w-6 h-[2px] bg-white mb-1 transform transition duration-300"
-            style={{
-              transform: open ? "rotate(45deg) translate(3px, 3px)" : "none",
-            }}
-          />
-          <span
-            className="block w-6 h-[2px] bg-white mb-1 transition duration-300"
-            style={{ opacity: open ? 0 : 1 }}
-          />
-          <span
-            className="block w-6 h-[2px] bg-white transition duration-300"
-            style={{
-              transform: open ? "-rotate(45deg) translate(3px, -3px)" : "none",
-            }}
-          />
-        </button>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </motion.button>
       </div>
 
-      <div
-        className={`lg:hidden absolute left-0 right-0 top-[90px] z-40 bg-black/90 backdrop-blur-lg rounded-b-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-300 ${
-          open
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
-      >
-        <ul className="flex flex-col gap-4 items-start">
-          <li
-            className={`transition-all duration-300 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: open ? "0ms" : "300ms" }}
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-secondary/95 backdrop-blur-2xl border-t border-primary-text/10"
           >
-            <button
-              className={buttonStyle}
-              onClick={() => {
-                document
-                  .getElementById("home")
-                  ?.scrollIntoView({ behavior: "smooth" });
-                setOpen(false);
-              }}
-            >
-              HOME
-            </button>
-          </li>
-          <li
-            className={`transition-all duration-300 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: open ? "100ms" : "200ms" }}
-          >
-            <button
-              className={buttonStyle}
-              onClick={() => {
-                document
-                  .getElementById("about")
-                  ?.scrollIntoView({ behavior: "smooth" });
-                setOpen(false);
-              }}
-            >
-              ABOUT
-            </button>
-          </li>
-          <li
-            className={`transition-all duration-300 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: open ? "200ms" : "100ms" }}
-          >
-            <button
-              className={buttonStyle}
-              onClick={() => {
-                document
-                  .getElementById("gallery")
-                  ?.scrollIntoView({ behavior: "smooth" });
-                setOpen(false);
-              }}
-            >
-              GALLERY
-            </button>
-          </li>
-          <li
-            className={`transition-all duration-300 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: open ? "300ms" : "0ms" }}
-          >
-            <button
-              className={buttonStyle}
-              onClick={() => {
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-                setOpen(false);
-              }}
-            >
-              CONTACT
-            </button>
-          </li>
-        </ul>
-      </div>
+            <ul className="flex flex-col p-8 gap-4">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-3xl font-headline font-black tracking-tighter text-primary-text hover:text-primary transition-colors w-full text-left py-2"
+                  >
+                    {link.name}
+                  </button>
+                </motion.li>
+              ))}
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                onClick={() => scrollToSection("contact")}
+                className="mt-4 bg-primary text-secondary w-full py-4 rounded-2xl font-headline font-black text-xl tracking-tight shadow-xl"
+              >
+                GET IN TOUCH
+              </motion.button>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
