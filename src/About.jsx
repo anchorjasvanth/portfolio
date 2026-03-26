@@ -97,7 +97,7 @@ function About() {
 
         {/* Text Content */}
         <div className="space-y-6">
-          <h2 className="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-brand-orange">
+          <h2 className=" text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-brand-orange">
             ABOUT
           </h2>
           <p className="text-lg md:text-xl text-secondary-text leading-relaxed font-light max-w-3xl">

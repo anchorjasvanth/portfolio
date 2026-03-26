@@ -50,7 +50,7 @@ function Navbar() {
           className="text-2xl md:text-3xl font-headline font-black tracking-tighter cursor-pointer text-primary-text flex items-center gap-1"
           onClick={() => scrollToSection("home")}
         >
-          JASVANTH<span className="text-primary">.</span>
+          JASVANTH
         </motion.div>
 
         {/* Desktop Navigation */}
