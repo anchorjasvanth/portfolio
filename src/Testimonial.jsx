@@ -61,14 +61,14 @@ function Testimonial() {
       (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
-  useEffect(() => {
-    if (testimonials.length === 0) return;
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 3000);
+  // useEffect(() => {
+  //   if (testimonials.length === 0) return;
+  //   const interval = setInterval(() => {
+  //     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  //   }, 3000);
 
-    return () => clearInterval(interval);
-  }, [testimonials.length, currentTestimonial]);
+  //   return () => clearInterval(interval);
+  // }, [testimonials.length, currentTestimonial]);
 
   if (isLoading) {
     return (
