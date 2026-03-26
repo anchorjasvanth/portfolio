@@ -44,8 +44,8 @@ function Hero() {
       }}
       id="home"
     >
-      <div className="flex flex-col justify-center mx-auto lg:mr-[10%] mb-50 my-60 lg:my-50">
-        <p className="lg:mt-0 mt-50 mb-[1%] text-1xl xl:text-2xl 2xl:text-3xl text-primary-text">
+      <div className="flex flex-col justify-end mx-auto xl:mr-[10%] mb-50 my-60 lg:my-50">
+        <p className="xl:mt-0 mt-50 mb-[1%] text-1xl xl:text-2xl 2xl:text-3xl text-primary-text">
           {heroData.tagline}
         </p>
         <p className="text-5xl md:text-7xl font-extrabold text-primary-text">

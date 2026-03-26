@@ -68,7 +68,7 @@ function Testimonial() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length, currentTestimonial]);
 
   if (isLoading) {
     return (
