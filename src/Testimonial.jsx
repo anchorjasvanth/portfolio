@@ -68,7 +68,7 @@ function Testimonial() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length, currentTestimonial]);
 
   if (isLoading) {
     return (
@@ -110,9 +110,9 @@ function Testimonial() {
                 prevTestimonial();
               }
             }}
-            className="bg-white p-12 md:p-16 rounded-xl shadow-2xl flex flex-col justify-between min-h-[400px]"
+            className="bg-white p-6 md:p-16 rounded-xl shadow-2xl flex flex-col justify-between min-h-[400px]"
           >
-            <p className=" text-2xl md:text-3xl leading-relaxed mb-12 italic font-medium">
+            <p className=" text-base md:text-3xl leading-relaxed mb-12 italic font-medium">
               "{testimonials[currentTestimonial].quote}"
             </p>
             <div className="flex items-center gap-6">
@@ -139,7 +139,7 @@ function Testimonial() {
         <div className="flex  justify-center items-center mt-12 gap-6">
           <button
             onClick={prevTestimonial}
-            className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-lg hover:bg-secondary/80"
+            className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-lg"
           >
             <ChevronLeft size={24} />
           </button>
@@ -153,7 +153,7 @@ function Testimonial() {
           </div>
           <button
             onClick={nextTestimonial}
-            className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-lg hover:bg-secondary/80"
+            className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-lg"
           >
             <ChevronRight size={24} />
           </button>
