@@ -1,12 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: oklch(0.7438 0.169 48.36);
-  --color-secondary: rgb(0, 0, 0);
+  /* --color-primary: oklch(0.7438 0.169 48.36); */
+  /* --color-primary: #edeee7; */
+  --color-primary: #008080;
+
+  --color-secondary: #000000;
   /* --color-primary-text: oklch(0.9636 0.0328 107); */
-  --color-primary-text: rgb(255, 255, 255);
-  --color-secondary-text: rgb(0, 0, 0);
+  --color-primary-text: #edeee7;
+  /* --color-primary-text: #3e4c4c; */
+  --color-secondary-text: #000000;
 }
+
+/* 
+hero:
+text - white
+button - getintouch 
+button text - whtie
+gettin text -white
+navbar:
+jasvanth - remove dot
+navbar - same
+
+*/
 
 @keyframes verticalLoop {
   0% {
