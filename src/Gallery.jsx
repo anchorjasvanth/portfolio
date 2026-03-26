@@ -145,7 +145,7 @@ function Gallery({ data }) {
                 <motion.button
                   whileHover={{ x: 5 }}
                   onClick={() => setIsArchiveOpen(true)}
-                  className="flex items-center gap-2 text-brand-brown font-headline font-bold uppercase tracking-widest text-sm group"
+                  className="flex cursor-pointer items-center gap-2 text-brand-brown font-headline font-bold uppercase tracking-widest text-sm group"
                 >
                   View Full Archive{" "}
                   <ExternalLink
@@ -217,7 +217,7 @@ function Gallery({ data }) {
                 </div>
                 <button
                   onClick={() => setIsArchiveOpen(false)}
-                  className="w-12 h-12 rounded-full bg-secondary/5 text-secondary flex items-center justify-center hover:bg-secondary hover:text-primary-text transition-all"
+                  className="cursor-pointer w-12 h-12 rounded-full bg-secondary/5 text-secondary flex items-center justify-center hover:bg-secondary hover:text-primary-text transition-all"
                 >
                   <X size={24} />
                 </button>
@@ -273,10 +273,10 @@ function Gallery({ data }) {
               </div>
 
               {/* Modal Footer */}
-              <div className="p-6 bg-secondary text-primary-text flex justify-center">
+              <div className="cursor-pointer p-6 bg-secondary text-primary-text flex justify-center">
                 <button
                   onClick={() => setIsArchiveOpen(false)}
-                  className="font-headline font-bold uppercase tracking-widest text-xs hover:text-brand-orange transition-colors"
+                  className="cursor-pointer   font-headline font-bold uppercase tracking-widest text-xs hover:text-brand-orange transition-colors"
                 >
                   Back to Portfolio
                 </button>

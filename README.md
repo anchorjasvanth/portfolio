@@ -1,2 +1,2 @@
-Set Font
-color theme
+add icons
+font

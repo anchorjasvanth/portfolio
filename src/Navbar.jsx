@@ -77,7 +77,7 @@ function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection("contact")}
-            className="bg-primary text-secondary px-6 py-2.5 rounded-full font-label font-black text-[12px] tracking-widest hover:shadow-[0_0_20px_rgba(244,179,63,0.4)] transition-all uppercase"
+            className="bg-primary text-secondary px-6 py-2.5 rounded-full font-label font-black text-[12px] tracking-widest cursor-pointer transition-all uppercase"
           >
             GET IN TOUCH
           </motion.button>

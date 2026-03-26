@@ -97,7 +97,7 @@ function About() {
 
         {/* Text Content */}
         <div className="space-y-6">
-          <h2 className=" text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-brand-orange">
+          <h2 className="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-brand-orange">
             ABOUT
           </h2>
           <p className="text-lg md:text-xl text-secondary-text leading-relaxed font-light max-w-3xl">
@@ -112,23 +112,28 @@ function About() {
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6 flex-1 flex flex-col justify-center gap-6">
             <div className="flex flex-col gap-6 overflow-y-auto lg:overflow-visible pr-2 lg:pr-0 max-h-[500px] lg:max-h-none custom-scrollbar">
               {scrollVids.map((video, i) => (
-                <div
-                  key={i}
-                  className="relative shrink-0 w-full aspect-video rounded-2xl overflow-hidden shadow-lg group border border-white/5 hover:border-brand-orange/50 transition-colors"
-                >
-                  <video
-                    className="w-full h-full object-cover"
-                    src={video.url}
-                    controls
-                    loop
-                    muted
-                    playsInline
-                    autoPlay
-                  />
-                  <div className="absolute top-4 left-4 bg-secondary/80 text-primary-text px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest z-10">
+                <>
+                  <div className=" text-black rounded-full text-[1rem] font-bold uppercase ">
                     {video.label}
                   </div>
-                </div>
+                  <div
+                    key={i}
+                    className="relative shrink-0 w-full aspect-video rounded-2xl overflow-hidden shadow-lg group border border-white/5 hover:border-brand-orange/50 transition-colors"
+                  >
+                    <video
+                      className="w-full h-full object-cover"
+                      src={video.url}
+                      controls
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                    />
+                    {/* <div className="absolute top-4 left-4 bg-secondary/80 text-primary-text px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest z-10">
+                      {video.label}
+                    </div> */}
+                  </div>
+                </>
               ))}
             </div>
           </div>

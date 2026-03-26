@@ -44,14 +44,14 @@ function Hero() {
       }}
       id="home"
     >
-      <div className="flex flex-col justify-center mx-auto lg:mr-[5%] xl:mr-[8%] 2xl:mr-[10%] mb-50 my-60 lg:my-50">
-        <p className="lg:mt-0 mt-40 mb-[1%] text-1xl xl:text-2xl 2xl:text-3xl text-primary-text">
+      <div className="flex flex-col justify-center mx-auto lg:mr-[10%] mb-50 my-60 lg:my-50">
+        <p className="lg:mt-0 mt-50 mb-[1%] text-1xl xl:text-2xl 2xl:text-3xl text-primary-text">
           {heroData.tagline}
         </p>
-        <p className="text-5xl md:text-7xl 2xl:text-8xl font-extrabold text-primary-text">
+        <p className="text-5xl md:text-7xl font-extrabold text-primary-text">
           {heroData.Name}
         </p>
-        <p className="text-4xl xl:text-5xl 2xl:text-8xl text-primary-text">
+        <p className="text-4xl xl:text-5xl  text-primary-text">
           {heroData.Job}
         </p>
         <button
@@ -60,7 +60,7 @@ function Hero() {
               .getElementById("contact")
               ?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="rounded-4xl p-5 mt-[10%] text-secondary-text bg-primary text-1xl xl:text-2xl 2xl:text-3xl font-extrabold cursor-pointer border-primary-text border-2"
+          className="rounded-4xl p-5 mt-[10%] text-secondary-text bg-primary text-1xl xl:text-2xl font-extrabold cursor-pointer border-primary-text border-2"
         >
           BRING ME ON STAGE
         </button>
